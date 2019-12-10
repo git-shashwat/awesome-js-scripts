@@ -3,10 +3,10 @@
 
     // color-coding already checked playlist of the session
     let markedVideos = [];
-    const myStorage = JSON.parse(localStorage.getItem('markedvideo'));
+    const myStorage = JSON.parse(sessionStorage.getItem('markedvideo'));
 
     if (myStorage !== null) {
-        markedVideos = JSON.parse(localStorage.getItem('markedvideo')).index;
+        markedVideos = JSON.parse(sessionStorage.getItem('markedvideo')).index;
     };
 
     // creating checkboxes
@@ -36,7 +36,7 @@
                 const markIndex = markedVideos.findIndex(index => index === i);
                 markedVideos.splice(markIndex,1);
             }
-            localStorage.setItem('markedvideo', JSON.stringify({ index: markedVideos }));
+            sessionStorage.setItem('markedvideo', JSON.stringify({ index: markedVideos }));
         })
     }
 })();
